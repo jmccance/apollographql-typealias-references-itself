@@ -1,0 +1,18 @@
+type Query {
+  links: [Link!]!
+}
+
+interface Linkable {
+  id: ID!
+  links: [Link!]!
+}
+
+interface Link implements Linkable {
+  id: ID!
+  to: Linkable!
+}
+
+type ChildLink implements Link & Linkable {
+  id: ID!
+  to: Linkable!
+}

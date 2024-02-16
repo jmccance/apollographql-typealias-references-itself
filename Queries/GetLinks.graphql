@@ -1,0 +1,25 @@
+query GetLinks {
+  links {
+    to {
+      id
+      links {
+        id
+      }
+    }
+  }
+
+  links {
+    ...MyLink
+    ...MyChildLink
+  }
+}
+
+fragment MyLink on Link {
+  to {
+    id
+  }
+}
+
+fragment MyChildLink on ChildLink {
+  id
+}
